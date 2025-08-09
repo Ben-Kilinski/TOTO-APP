@@ -7,9 +7,9 @@ interface NavbarProps {
 
 export default function Navbar({ language, setLanguage }: NavbarProps) {
   return (
-    <nav className="bg-zinc-900 text-white px-4 py-3 flex items-center justify-between shadow-md">
+    <nav className="bg-zinc-900 text-white px-4 py-2 flex items-center justify-between shadow-md">
       <div className="flex items-center gap-2">
-        <img src={logo} alt="Logo" className="w-18 h-10" />
+        <img src={logo} alt="Logo" className="w-18 h-12" />
         {/* <span className="text-xl font-bold">Toto Menu</span> */}
       </div>
 

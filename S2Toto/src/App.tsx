@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="bg-black min-h-screen text-white">
       <Navbar language={language} setLanguage={setLanguage} />
-      <main className="mt-0">
+      <main className="h-screen">
         <FoodCarousel language={language} />
       </main>
     </div>
