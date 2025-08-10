@@ -114,8 +114,8 @@ export default function FoodCarousel({ language }: FoodCarouselProps) {
               snapOff
                 ? "none"
                 : isAnimating
-                ? `transform ${DURATION}ms ${EASING}`
-                : undefined,
+                  ? `transform ${DURATION}ms ${EASING}`
+                  : undefined,
             willChange: "transform",
           }}
           onTransitionEnd={onTrackEnd}
@@ -146,18 +146,39 @@ export default function FoodCarousel({ language }: FoodCarouselProps) {
                     className="w-full h-56 object-cover"
                     draggable={false}
                   />
-                  <div className="p-4 flex flex-col justify-start h-[calc(100%-224px)]">
+                  <div className="p-6 flex flex-col justify-start h-[calc(100%-224px)] gap-4 overflow-auto">
+                    {/* Título maior e com cor diferente */}
                     <h2
-                      className={`text-lg font-bold mb-2 ${
-                        language === "he" ? "text-right" : "text-left"
-                      }`}
+                      className={`text-2xl font-extrabold tracking-tight text-rose-400 ${language === "he" ? "text-right" : "text-left"
+                        }`}
                     >
                       {dish[language]}
                     </h2>
-                    <p className="text-sm text-zinc-300 whitespace-pre-wrap overflow-auto">
-                      {dish.description[language]}
-                    </p>
+
+                    {/* Texto em bloco; RTL para he, LTR para pt/en; sem sobras de linha */}
+                    <div
+                      dir={language === "he" ? "rtl" : "ltr"}
+                      className={`space-y-4 ${language === "he" ? "text-right" : "text-left"} text-justify`}
+                    >
+                      {dish.description[language].map((blk, i) => (
+                        <div key={i}>
+                          <div className="text-sm font-semibold uppercase tracking-wide text-amber-300 mb-1">
+                            {blk.title}
+                          </div>
+                          <div
+                            className="text-base text-zinc-100 leading-relaxed"
+                            style={{ whiteSpace: "normal" }}
+                          >
+                            {blk.text}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
                   </div>
+
+
+
                 </div>
               </div>
             );
