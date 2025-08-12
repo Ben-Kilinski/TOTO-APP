@@ -77,7 +77,7 @@ export default function FoodCarousel({ language }: FoodCarouselProps) {
     const dist = index - pos; // -∞..+∞
     // dist 0 = centro, ±1 = laterais visíveis, outros = fora
     if (dist === 0) return { scale: 1.1, opacity: 1.0, z: 30 };
-    if (dist === -1 || dist === 1) return { scale: 0.95, opacity: 0.6, z: 20 };
+    if (dist === -1 || dist === 1) return { scale: 0.75, opacity: 0.5, z: 20 };
     return { scale: 0.9, opacity: 0.0, z: 10 };
   }
 
@@ -146,7 +146,7 @@ export default function FoodCarousel({ language }: FoodCarouselProps) {
                     className="w-full h-56 object-cover"
                     draggable={false}
                   />
-                  <div className="p-6 flex flex-col justify-start h-[calc(100%-224px)] gap-4 overflow-auto">
+                  <div className="p-6 flex flex-col justify-start h-[calc(100%-224px)] gap-4 overflow-auto scroll-slim pb-12">
                     {/* Título maior e com cor diferente */}
                     <h2
                       className={`text-2xl font-extrabold tracking-tight text-rose-400 ${language === "he" ? "text-right" : "text-left"

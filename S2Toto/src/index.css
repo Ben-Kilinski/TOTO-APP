@@ -1,2 +1,29 @@
 @import "tailwindcss";
 
+/* barra de rolagem discreta (padrão) */
+.scroll-slim {
+  scrollbar-width: thin;         /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+/* WebKit (Chrome/Edge/Safari) */
+.scroll-slim::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-slim::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 9999px;
+}
+
+/* Se quiser sumir COMPLETAMENTE com a barra, troque .scroll-slim por .scroll-hidden no JSX e use isto: */
+.scroll-hidden {
+  -ms-overflow-style: none;   /* IE/Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+.scroll-hidden::-webkit-scrollbar {
+  display: none;              /* Chrome/Safari */
+}
+
